@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function CharacterCard(props){
     return (
-        <div>{props.value}</div>
+        <div class={props.class}>{props.value}</div>
     )
 }
