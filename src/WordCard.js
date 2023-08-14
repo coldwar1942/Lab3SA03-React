@@ -3,7 +3,8 @@ import CharacterCard from './CharacterCard'
 import _ from 'lodash';
 
 const prepareStateFromWord = (given_word) => {
-    let word = given_word.toUpperCase()
+    let random_word = _.shuffle(given_word)[0]
+    let word = random_word.toUpperCase()
     let chars = _.shuffle(Array.from(word))
     return {
         word,

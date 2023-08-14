@@ -1,13 +1,13 @@
 import WordCard from './WordCard'
 import './App.css'
 
-const word = 'Hello'
+const word = ["Hello", "Car", "Bus"]
 
 function App() {
   return (
     <div>
             
-                <WordCard value="hello"/>
+                <WordCard value={word}/>
             
     </div>
   );
