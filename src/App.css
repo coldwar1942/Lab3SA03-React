@@ -8,6 +8,11 @@
   user-select: none;
 }
 
+.activeCard {
+  color: red;
+  background: pink;
+}
+
 
 .App {
   text-align: center;
