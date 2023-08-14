@@ -35,6 +35,12 @@ export default function WordCard(props) {
         }
        
     }
+
+    const handlePlaygame = () => {
+        setState(prepareStateFromWord(props.value))
+        setState({...state, guess: '', attempt: state.attempt + 1})
+        
+    }
     
     return (
         <div>
@@ -43,6 +49,7 @@ export default function WordCard(props) {
                 (c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt = {state.attempt}/>
             )
         }
+        <button onClick={handlePlaygame}>Try again</button>
         </div>
     )
 }
