@@ -12,6 +12,7 @@ export default function CharacterCard(props){
 
     useEffect(() => {
         if(props.finishGame) {
+            console.log(`finish game!`)
            if(attemptRef.current != props.attempt){
                 setActive(false);
                 attemptRef.current = props.attempt
@@ -23,7 +24,7 @@ export default function CharacterCard(props){
     useEffect(() => {
         if (props.resetGame) {
             setActive(false)
-
+            
             }
         },)
         

@@ -1,6 +1,6 @@
 import React, {useState,useEffect,useRef} from 'react'
 import CharacterCard from './CharacterCard'
-import _, { attempt } from 'lodash';
+import _, { attempt, words } from 'lodash';
 
 const prepareStateFromWord = (given_word) => {
     let random_word = _.shuffle(given_word)[0]
@@ -25,13 +25,21 @@ export default function WordCard(props) {
         console.log(`${c} has been activated`)
         
         let guess = state.guess + c
+        let new_word
+       
         setState({...state, guess})
+        setResetGame(false)
 
         if(guess.length == state.word.length) {
             if(guess == state.word) {
                 console.log('yeah!')
                 setState({...state,guess:'', completed: true})
                 setFinishGame(true)
+
+                new_word = prepareStateFromWord(props.value)
+                console.log(`${new_word} new word`)
+                changeWord(new_word)
+                setResetGame(true) 
                 
             }else {
                 console.log('reset')
@@ -39,16 +47,15 @@ export default function WordCard(props) {
                 console.log(`${state.attempt} <= attempt`)
                 setFinishGame(true)
             }
+            
+            
         }
        
     }
 
-    const swapWord = () => {
-        //let new_word = _.shuffle(props.value)[0]
-        //setState({...state, word: new_word})
-        console.log("Swap Word!2")
-        //console.log({new_word})
-
+    const changeWord = (given_words) => {
+        setState({...state,word: given_words.word,chars:given_words.chars})
+       
     }
 
     const deleteGuess = () => {
@@ -70,6 +77,7 @@ export default function WordCard(props) {
             )
         }
         <button onClick={handlePlaygame}>Try again</button>
+      
         
         </div>
     )
