@@ -18,7 +18,11 @@ export default function CharacterCard(props){
                 attemptRef.current = props.attempt
             } 
         }
-        
+        if(attemptRef.current == 3) {
+            console.log('You lose!')
+        }
+      
+
         })
 
     useEffect(() => {
