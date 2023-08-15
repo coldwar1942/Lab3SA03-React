@@ -6,17 +6,28 @@ export default function CharacterCard(props){
         if(!active){
             setActive(true)
             props.activationHandler(props.value)
+            console.log(`${attemptRef.current} <= attemptRef`)
         }
     }
 
     useEffect(() => {
-        if(attemptRef.current != props.attempt){
-            setActive(false);
-            attemptRef.current = props.attempt
+        if(props.finishGame) {
+           if(attemptRef.current != props.attempt){
+                setActive(false);
+                attemptRef.current = props.attempt
+            } 
         }
         
-        
         })
+
+    useEffect(() => {
+        if (props.resetGame) {
+            setActive(false)
+
+            }
+        },)
+        
+        
        
 
     const className = `card ${active ? 'activeCard' : ''}`
