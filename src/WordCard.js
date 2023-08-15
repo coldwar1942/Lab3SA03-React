@@ -54,6 +54,10 @@ export default function WordCard(props) {
        
     }
 
+    const swapWord = () => {
+        changeWord(prepareStateFromWord(props.value))
+    }
+
     const changeWord = (given_words) => {
         setState({...state,word: given_words.word,chars:given_words.chars})
        
@@ -78,7 +82,7 @@ export default function WordCard(props) {
             )
         }
         <button onClick={handlePlaygame}>Try again</button>
-      
+        <button onClick={swapWord}>Change Word</button>
         
         </div>
     )
